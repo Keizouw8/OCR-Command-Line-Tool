@@ -1,0 +1,24 @@
+{
+  "name": "ocr-command-line-tool",
+  "version": "1.0.0",
+  "description": "Scan images on CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"test\")"
+  },
+  "bin": {
+    "ocr": "ocr.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Keizouw8/OCR-Command-Line-Tool.git"
+  },
+  "author": "Keizou Wang",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "*",
+    "loading-cli": "^1.1.0",
+    "tesseract.js": "^2.1.4",
+    "yargs": "^16.2.0"
+  }
+}
