@@ -3,7 +3,7 @@ const fs = require('fs')
 const loading =  require('loading-cli');
 async function ocr (x, y) {
     const load = loading("loading text!!").start()
-    load.frame(["\\", "|", "/", "–",]);
+    load.frame(["\\", "|", "/", "–"]);
     load.color = 'yellow';
     load.text = ' Loading';
     var bruh = await Tesseract.recognize(
@@ -13,9 +13,11 @@ async function ocr (x, y) {
       ).then(async function ({ data: { text } }) {
         if(typeof y == "string"){
           await fs.writeFile(y, text, function (err) {});
+          await fs.unlinkSync('eng.traineddata')
           console.log("\nSuccessfully wrote to file.");
         } else {
           console.log("\n")
+          await fs.unlinkSync('eng.traineddata')
           return text
         }
       })
