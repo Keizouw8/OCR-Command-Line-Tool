@@ -4,17 +4,23 @@ const loading =  require('loading-cli');
 async function ocr (x, y) {
     const load = loading("loading text!!").start()
     load.frame(["\\", "|", "/", "–",]);
-    load.color = 'white';
-    load.text = 'Loading';
-    await Tesseract.recognize(
+    load.color = 'yellow';
+    load.text = ' Loading';
+    var bruh = await Tesseract.recognize(
         x,
         'eng',
         {  }
-      ).then(function ({ data: { text } }) {
-        fs.writeFile(y, text, function (err) {});
-        load.stop()
-        console.log("Successfully wrote to file.");
+      ).then(async function ({ data: { text } }) {
+        if(typeof y == "string"){
+          await fs.writeFile(y, text, function (err) {});
+          console.log("\nSuccessfully wrote to file.");
+        } else {
+          console.log("\n")
+          return text
+        }
       })
+    load.stop()
+    return bruh
 }
 module.exports =  {
     ocr
