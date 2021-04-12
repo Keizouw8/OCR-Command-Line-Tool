@@ -20,7 +20,7 @@ $ ocr --img '<path to image>' --file '<save to file name>'
 ```
 In NodeJS:
 ```js
-const ocrCommandLineTool = require("./index.js").ocr
+const ocrCommandLineTool = require("ocr-command-line-tool").ocr
 async function getText (imagepath) {
     var mytext = await ocrCommandLineTool(imagepath)
     console.log(mytext)

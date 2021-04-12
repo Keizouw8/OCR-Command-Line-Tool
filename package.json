@@ -1,6 +1,6 @@
 {
   "name": "ocr-command-line-tool",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Scan images on CLI",
   "main": "index.js",
   "scripts": {
